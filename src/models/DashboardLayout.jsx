@@ -81,9 +81,9 @@ export const DashboardLayout = () => {
               }
           </div>
 
-          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8 logout-button'>
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className={`mt-8 ${!collapse? 'logout-button': ''}`}>
             <Menu.Item key="9" className='' icon={<MdOutlineLogout fontSize={'20px'} />}>
-                Logout
+                { !collapse? 'Logout': ''}
             </Menu.Item>
           </Menu>
 
