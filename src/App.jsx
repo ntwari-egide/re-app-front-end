@@ -7,7 +7,9 @@ import './styles/dashboard-layout.css'
 function App() {
   return (
     <div className="App">
-      <DashboardLayout />
+      <DashboardLayout>
+        {/* <h3>Go here my brother</h3> */}
+      </DashboardLayout>
     </div>
   )
 }

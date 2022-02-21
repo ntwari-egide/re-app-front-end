@@ -11,6 +11,8 @@ import {GoTools} from 'react-icons/go'
 import {FiUsers, FiUser} from 'react-icons/fi'
 import {MdOutlineLogout} from 'react-icons/md'
 import {RiNotification3Line} from 'react-icons/ri'
+import { Input } from 'antd';
+import {RiSearch2Line} from 'react-icons/ri'
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -90,17 +92,18 @@ export const DashboardLayout = (props) => {
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background">
-            <div className='float-right leading-6 text-xs mt-2 '>
-              <Space direction='horizantal'>
-                <div>
-                  <Text className='font-semibold text_semi_black'>Yvette Gahamanyi</Text> <br/>
-                  <Text className='text_semi_black'>workspace owner</Text>
-                </div>
-                <div className='mt-3 ml-2 cursor-pointer'>
-                  <RiNotification3Line fontSize={'25px'} />
-                </div>
-              </Space>
-            </div>
+              <Input size="medium" placeholder="Search" prefix={<RiSearch2Line />} className='w-96 search-input' />
+              <div className='float-right leading-6 text-xs mt-2 '>
+                <Space direction='horizantal'>
+                  <div>
+                    <Text className='font-semibold text_semi_black'>Yvette Gahamanyi</Text> <br/>
+                    <Text className='text_semi_black'>workspace owner</Text>
+                  </div>
+                  <div className='mt-3 ml-2 cursor-pointer'>
+                    <RiNotification3Line fontSize={'25px'} />
+                  </div>
+                </Space>
+              </div>
           </Header>
           <Content style={{ margin: '0 16px' }}>
 
