@@ -3,22 +3,23 @@
  * @description: dashboard layout model
  */
 
-import { Layout, Menu, Breadcrumb, Space } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-} from '@ant-design/icons';
+import { Layout, Menu,  Space,  Typography } from 'antd';
 import { useState } from 'react';
 import "../styles/dashboard-layout.css"
-import { PurchaseBillsForm } from './Form';
-import { LoadingAnalytics } from './LoadingAnalytics';
+import {MdDashboard} from 'react-icons/md'
+import {GoTools} from 'react-icons/go'
+import {FiUsers, FiUser} from 'react-icons/fi'
+import {MdOutlineLogout} from 'react-icons/md'
+import {RiNotification3Line} from 'react-icons/ri'
+import { Input } from 'antd';
+import {RiSearch2Line} from 'react-icons/ri'
 
 const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
 
-export const DashboardLayout = () => {
+const {Title, Text } = Typography
+
+
+export const DashboardLayout = (props) => {
 
     const [collapse, setcollapsed] = useState(false)
 
@@ -53,47 +54,64 @@ export const DashboardLayout = () => {
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={collapse} onCollapse={onCollapse}>
-          <div className="logo text-center">
-              ELECTRICA
+        <Sider theme='light' collapsible  collapsed={collapse} width="18vw" onCollapse={onCollapse}>
+          <div className="logo text-center mt-12">
+              <Title className="text_color_yellow text-3xl">Re<span className='text-black'>.</span></Title>
           </div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8'>
+            <Menu.Item key="1" icon={<MdDashboard fontSize={'20px'} />}>
               Dashboard
             </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-                Billing groups
+            <Menu.Item key="2" icon={<GoTools fontSize={'20px'} />}>
+                Properties 
             </Menu.Item>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Bills">
-              <Menu.Item key="6">Electricity</Menu.Item>
-              <Menu.Item key="8">Cash power</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9" icon={<DesktopOutlined />}>
-                Billing Reports
+            <Menu.Item key="9" icon={<FiUsers fontSize={'20px'} />}>
+                Members
             </Menu.Item>
-            <Menu.Item key="10" icon={<FileOutlined />}>
-              Purchasing plans
+            <Menu.Item key="10" icon={<FiUser fontSize={'20px'} />}>
+              Profile
             </Menu.Item>
           </Menu>
+         
+          <div className='ml-8 mt-40 text_semi_black h-14'>
+              {
+                !collapse ? 
+                <>
+                  <p>Workspace:</p>
+                  <p className='font-medium'>Rwanda Coding Academy</p>
+                </>: ''
+              }
+          </div>
+
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className={`mt-8 ${!collapse? 'logout-button': ''}`}>
+            <Menu.Item key="9" className='' icon={<MdOutlineLogout fontSize={'20px'} />}>
+                { !collapse? 'Logout': ''}
+            </Menu.Item>
+          </Menu>
+
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Bills</Breadcrumb.Item>
-              <Breadcrumb.Item>Electricity Bills Service</Breadcrumb.Item>
-            </Breadcrumb>
-           
-                {/* <CustomizedTable data={templatedata} /> */}
-
-                <Space direction="horizontal">
-                    <PurchaseBillsForm />
-
-                    <LoadingAnalytics />
+          <Header className="site-layout-background">
+              <Input size="medium" placeholder="Search" prefix={<RiSearch2Line />} className='w-96 search-input' />
+              <div className='float-right leading-6 text-xs mt-2 '>
+                <Space direction='horizantal'>
+                  <div>
+                    <Text className='font-semibold text_semi_black'>Yvette Gahamanyi</Text> <br/>
+                    <Text className='text_semi_black'>workspace owner</Text>
+                  </div>
+                  <div className='mt-3 ml-2 cursor-pointer'>
+                    <RiNotification3Line fontSize={'25px'} />
+                  </div>
                 </Space>
+              </div>
+          </Header>
+          <Content style={{ margin: '0 16px' }}>
 
+            {/* every content will be rendered here */}
+            
+          {props.children}
+              
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Electrica &copy; 2022 Created by Ntwari Egide</Footer>
         </Layout>
       </Layout>
     );
