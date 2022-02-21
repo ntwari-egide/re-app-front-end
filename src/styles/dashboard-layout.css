@@ -1,9 +1,33 @@
-#components-layout-demo-side .logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  .site-layout .site-layout-background {
-    background: #fff;
-  }
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+.ant-menu-item-selected {
+  background-color: white;
+  color: #f3b128;
+}
+
+.ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+  border-right: none !important;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent !important;
+  border-left: 3px solid;
+}
+
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: #f3b011 !important;
+}
+
+
+ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.mt-8.logout-button {
+  background: #f3b228;
+  width: 75%;
+  margin-left: 26px;
+  color: white;
+  font-weight: 600;
+  padding-left: 32px;
+  border-radius: 4px;
+}

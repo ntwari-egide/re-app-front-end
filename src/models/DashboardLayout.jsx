@@ -3,7 +3,7 @@
  * @description: dashboard layout model
  */
 
-import { Layout, Menu, Breadcrumb, Space } from 'antd';
+import { Layout, Menu, Breadcrumb, Space, Typography } from 'antd';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -14,8 +14,15 @@ import { useState } from 'react';
 import "../styles/dashboard-layout.css"
 import { PurchaseBillsForm } from './Form';
 import { LoadingAnalytics } from './LoadingAnalytics';
+import {MdDashboard} from 'react-icons/md'
+import {GoTools} from 'react-icons/go'
+import {FiUsers, FiUser} from 'react-icons/fi'
+import {MdOutlineLogout} from 'react-icons/md'
 
 const { Header, Content, Footer, Sider } = Layout;
+
+const {Title, Text } = Typography
+
 const { SubMenu } = Menu;
 
 export const DashboardLayout = () => {
@@ -53,45 +60,44 @@ export const DashboardLayout = () => {
 
     return (
       <Layout style={{ minHeight: '100vh' }}>
-        <Sider collapsible collapsed={collapse} onCollapse={onCollapse}>
-          <div className="logo text-center">
-              ELECTRICA
+        <Sider theme='light' collapsible  collapsed={collapse} width="18vw" onCollapse={onCollapse}>
+          <div className="logo text-center mt-12">
+              <Title className="text_color_yellow text-3xl">Re<span className='text-black'>.</span></Title>
           </div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8'>
+            <Menu.Item key="1" icon={<MdDashboard fontSize={'20px'} />}>
               Dashboard
             </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-                Billing groups
+            <Menu.Item key="2" icon={<GoTools fontSize={'20px'} />}>
+                Properties 
             </Menu.Item>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Bills">
-              <Menu.Item key="6">Electricity</Menu.Item>
-              <Menu.Item key="8">Cash power</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9" icon={<DesktopOutlined />}>
-                Billing Reports
+            <Menu.Item key="9" icon={<FiUsers fontSize={'20px'} />}>
+                Members
             </Menu.Item>
-            <Menu.Item key="10" icon={<FileOutlined />}>
-              Purchasing plans
+            <Menu.Item key="10" icon={<FiUser fontSize={'20px'} />}>
+              Profile
             </Menu.Item>
           </Menu>
+         
+          {
+            !collapse ?  <div className='ml-8 mt-40 text_semi_black'>
+            <p>Workspace:</p>
+            <p className='font-medium'>Rwanda Coding Academy</p>
+          </div>: '' 
+          }
+
+          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8 logout-button'>
+            <Menu.Item key="9" className='' icon={<MdOutlineLogout fontSize={'20px'} />}>
+                Logout
+            </Menu.Item>
+          </Menu>
+
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Bills</Breadcrumb.Item>
-              <Breadcrumb.Item>Electricity Bills Service</Breadcrumb.Item>
-            </Breadcrumb>
-           
-                {/* <CustomizedTable data={templatedata} /> */}
-
-                <Space direction="horizontal">
-                    <PurchaseBillsForm />
-
-                    <LoadingAnalytics />
-                </Space>
-
+            
+              
           </Content>
           <Footer style={{ textAlign: 'center' }}>Electrica &copy; 2022 Created by Ntwari Egide</Footer>
         </Layout>
