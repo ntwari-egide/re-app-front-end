@@ -17,7 +17,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const {Title, Text } = Typography
 
 
-export const DashboardLayout = () => {
+export const DashboardLayout = (props) => {
 
     const [collapse, setcollapsed] = useState(false)
 
@@ -103,7 +103,10 @@ export const DashboardLayout = () => {
             </div>
           </Header>
           <Content style={{ margin: '0 16px' }}>
+
+            {/* every content will be rendered here */}
             
+          {props.children}
               
           </Content>
         </Layout>
