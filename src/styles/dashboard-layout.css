@@ -31,3 +31,21 @@ ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.mt-8.logout-button {
   padding-left: 32px;
   border-radius: 4px;
 }
+
+ul.ant-menu.ant-menu-root.ant-menu-inline.ant-menu-light.mt-8.logout-button:hover {
+  color: white !important;
+}
+
+.ant-layout-sider-light {
+  background: #fff;
+  margin-left: 20px !important;
+}
+
+section.ant-layout.site-layout {
+  margin-left: 20px !important;
+}
+
+.ant-layout-header {
+  height: 79px !important;
+  padding: 0 50px;
+}

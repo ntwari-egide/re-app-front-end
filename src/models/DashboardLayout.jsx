@@ -3,27 +3,19 @@
  * @description: dashboard layout model
  */
 
-import { Layout, Menu, Breadcrumb, Space, Typography } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-} from '@ant-design/icons';
+import { Layout, Menu,  Space,  Typography } from 'antd';
 import { useState } from 'react';
 import "../styles/dashboard-layout.css"
-import { PurchaseBillsForm } from './Form';
-import { LoadingAnalytics } from './LoadingAnalytics';
 import {MdDashboard} from 'react-icons/md'
 import {GoTools} from 'react-icons/go'
 import {FiUsers, FiUser} from 'react-icons/fi'
 import {MdOutlineLogout} from 'react-icons/md'
+import {RiNotification3Line} from 'react-icons/ri'
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const {Title, Text } = Typography
 
-const { SubMenu } = Menu;
 
 export const DashboardLayout = () => {
 
@@ -79,12 +71,15 @@ export const DashboardLayout = () => {
             </Menu.Item>
           </Menu>
          
-          {
-            !collapse ?  <div className='ml-8 mt-40 text_semi_black'>
-            <p>Workspace:</p>
-            <p className='font-medium'>Rwanda Coding Academy</p>
-          </div>: '' 
-          }
+          <div className='ml-8 mt-40 text_semi_black h-14'>
+              {
+                !collapse ? 
+                <>
+                  <p>Workspace:</p>
+                  <p className='font-medium'>Rwanda Coding Academy</p>
+                </>: ''
+              }
+          </div>
 
           <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8 logout-button'>
             <Menu.Item key="9" className='' icon={<MdOutlineLogout fontSize={'20px'} />}>
@@ -94,12 +89,23 @@ export const DashboardLayout = () => {
 
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Header className="site-layout-background">
+            <div className='float-right leading-6 text-xs mt-2 '>
+              <Space direction='horizantal'>
+                <div>
+                  <Text className='font-semibold text_semi_black'>Yvette Gahamanyi</Text> <br/>
+                  <Text className='text_semi_black'>workspace owner</Text>
+                </div>
+                <div className='mt-3 ml-2 cursor-pointer'>
+                  <RiNotification3Line fontSize={'25px'} />
+                </div>
+              </Space>
+            </div>
+          </Header>
           <Content style={{ margin: '0 16px' }}>
             
               
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Electrica &copy; 2022 Created by Ntwari Egide</Footer>
         </Layout>
       </Layout>
     );
