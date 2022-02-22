@@ -1,0 +1,25 @@
+.login-form {
+  max-width: 300px;
+  padding-bottom: 25px;
+}
+.login-form-forgot {
+  float: left;
+  color: #595959;
+  text-decoration: underline;
+}
+.login-form-forgot:hover {
+  color: #595959;
+  text-decoration: underline;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
+  background: #595959;
+  border-color: #595959;
+}
+.login-form-button:hover {
+  background: #595959;
+  border-color: #595959;
+}
