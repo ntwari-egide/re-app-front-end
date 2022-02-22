@@ -13,6 +13,7 @@ import {MdOutlineLogout} from 'react-icons/md'
 import {RiNotification3Line} from 'react-icons/ri'
 import { Input } from 'antd';
 import {RiSearch2Line} from 'react-icons/ri'
+import { Link } from 'react-router-dom';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -69,7 +70,7 @@ export const DashboardLayout = (props) => {
                 Members
             </Menu.Item>
             <Menu.Item key="10" icon={<FiUser fontSize={'20px'} />}>
-              Profile
+            <Link to="/login">Profile</Link>  
             </Menu.Item>
           </Menu>
          
