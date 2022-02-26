@@ -13,3 +13,14 @@
 .background_blue {
     background-color: #0597F2 !important;
 }
+
+input.ant-input {
+    border: 1px solid #1990fe;
+    padding: 12px !important;
+}
+
+.ant-select-selector {
+    border: 1px solid #3097f2 !important;
+    height: 46px !important;
+    padding: 7px !important;
+}

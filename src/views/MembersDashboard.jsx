@@ -61,7 +61,7 @@ export const MembersDashboardComponent = () => {
                 {/* rendering the content of add new member */}
 
                 <Modal title={null} visible={isaddnewmembervisible}  onCancel={() => setaddnewmembervisibility(false)} footer={null}>
-                    <Title className="text-base text-center font-medium">Add member</Title>
+                    <Title className="text-base text-center font-semibold">Add member</Title>
 
                     <div className="px-16 mt-8">
                     <Form
@@ -102,7 +102,7 @@ export const MembersDashboardComponent = () => {
                             </Select>
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" className="w-full h-12">Create</Button>
+                            <Button type="primary" className="w-full h-12 background_blue">Create</Button>
                         </Form.Item>
                         </Form>
                     </div>
