@@ -14,7 +14,7 @@ import {RiNotification3Line} from 'react-icons/ri'
 import { Input } from 'antd';
 import {RiSearch2Line} from 'react-icons/ri'
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const {Title, Text } = Typography
 
@@ -25,50 +25,23 @@ export const DashboardLayout = (props) => {
 
     const onCollapse = () => setcollapsed( !collapse)
 
-    const templatedata = [
-        {
-          key: '1',
-          firstName: 'John',
-          lastName: 'Brown',
-          age: 32,
-          address: 'New York No. 1 Lake Park',
-          tags: ['nice', 'developer'],
-        },
-        {
-          key: '2',
-          firstName: 'Jim',
-          lastName: 'Green',
-          age: 42,
-          address: 'London No. 1 Lake Park',
-          tags: ['loser'],
-        },
-        {
-          key: '3',
-          firstName: 'Joe',
-          lastName: 'Black',
-          age: 32,
-          address: 'Sidney No. 1 Lake Park',
-          tags: ['cool', 'teacher'],
-        },
-      ];
-
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider theme='light' collapsible  collapsed={collapse} width="18vw" onCollapse={onCollapse}>
           <div className="logo text-center mt-12">
               <Title className="text_color_yellow text-3xl">Re<span className='text-black'>.</span></Title>
           </div>
-          <Menu theme="light" defaultSelectedKeys={['1']} mode="inline" className='mt-8'>
+          <Menu theme="light" defaultSelectedKeys={[`${props.defaultSelectedKeys}`]} mode="inline" className='mt-8'>
             <Menu.Item key="1" icon={<MdDashboard fontSize={'20px'} />}>
               Dashboard
             </Menu.Item>
             <Menu.Item key="2" icon={<GoTools fontSize={'20px'} />}>
                 Properties 
             </Menu.Item>
-            <Menu.Item key="9" icon={<FiUsers fontSize={'20px'} />}>
+            <Menu.Item key="3" icon={<FiUsers fontSize={'20px'} />}>
                 Members
             </Menu.Item>
-            <Menu.Item key="10" icon={<FiUser fontSize={'20px'} />}>
+            <Menu.Item key="4" icon={<FiUser fontSize={'20px'} />}>
               Profile
             </Menu.Item>
           </Menu>
@@ -109,7 +82,7 @@ export const DashboardLayout = (props) => {
 
             {/* every content will be rendered here */}
             
-          {props.children}
+            {props.children}
               
           </Content>
         </Layout>
