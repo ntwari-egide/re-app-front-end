@@ -49,3 +49,7 @@ section.ant-layout.site-layout {
   height: 79px !important;
   padding: 0 50px;
 }
+
+.active-tab{
+  border-left: 2px solid #FEB211;
+}

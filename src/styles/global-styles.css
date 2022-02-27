@@ -28,3 +28,12 @@ input.ant-input {
 span.ant-input-affix-wrapper.w-96.search-input {
     height: 34px;
 }
+
+
+.transparent_violet_bg {
+    background-color: #45247315 !important;
+}
+
+.pure_violet_bg{
+    background-color: #452473 !important;
+}
