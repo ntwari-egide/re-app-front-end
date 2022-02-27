@@ -13,6 +13,7 @@ import {MdOutlineLogout} from 'react-icons/md'
 import {RiNotification3Line} from 'react-icons/ri'
 import { Input } from 'antd';
 import {RiSearch2Line} from 'react-icons/ri'
+import {useHistory} from 'react-router'
 
 const { Header, Content, Sider } = Layout;
 
@@ -21,7 +22,9 @@ const {Title, Text } = Typography
 
 export const DashboardLayout = (props) => {
 
-    const [collapse, setcollapsed] = useState(false)
+    const history = useHistory()
+
+    const [collapse, setcollapsed] = useState(props.isMenuCollapsed)
 
     const onCollapse = () => setcollapsed( !collapse)
 
@@ -32,16 +35,16 @@ export const DashboardLayout = (props) => {
               <Title className="text_color_yellow text-3xl">Re<span className='text-black'>.</span></Title>
           </div>
           <Menu theme="light" defaultSelectedKeys={[`${props.defaultSelectedKeys}`]} mode="inline" className='mt-8'>
-            <Menu.Item key="1" icon={<MdDashboard fontSize={'20px'} />}>
+            <Menu.Item key="1" icon={<MdDashboard fontSize={'20px'} />} onClick={()=> history.push('/welcome-dashboard')}>
               Dashboard
             </Menu.Item>
-            <Menu.Item key="2" icon={<GoTools fontSize={'20px'} />}>
+            <Menu.Item key="2" icon={<GoTools fontSize={'20px'} />} onClick={()=> history.push('/properties')}>
                 Properties 
             </Menu.Item>
-            <Menu.Item key="3" icon={<FiUsers fontSize={'20px'} />}>
+            <Menu.Item key="3" icon={<FiUsers fontSize={'20px'} />} onClick={()=> history.push('/members')}>
                 Members
             </Menu.Item>
-            <Menu.Item key="4" icon={<FiUser fontSize={'20px'} />}>
+            <Menu.Item key="4" icon={<FiUser fontSize={'20px'} />} onClick={()=> history.push('/profile')}>
               Profile
             </Menu.Item>
           </Menu>

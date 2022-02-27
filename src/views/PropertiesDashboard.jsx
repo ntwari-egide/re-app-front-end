@@ -17,6 +17,8 @@ export const PropertiesDashboard = () => {
 
     const {Title} = Typography
 
+    const { TextArea } = Input;
+
     const templatedata = [
         {
           key: '1',
@@ -139,7 +141,7 @@ export const PropertiesDashboard = () => {
       } 
 
     return (
-        <DashboardLayout defaultSelectedKeys={2}>
+        <DashboardLayout defaultSelectedKeys={2} isMenuCollapsed={false}>
             <Title className=" text-xl mt-4 font-medium">Properties</Title>
 
             <Button className="float-right rounded-md w-[16em] border-none background_blue text-white h-12 hover:scale-[1.03] mt-4" onClick={()=> setaddnewpropertyvisibility(true)}>Add new property</Button>
@@ -181,7 +183,7 @@ export const PropertiesDashboard = () => {
                             label="Description"
                             tooltip={{ title: 'enter property description', icon: <InfoCircleOutlined /> }}
                         >
-                            <Input placeholder="please enter property description" />
+                            <TextArea placeholder="please enter property description" rows={4} />
                         </Form.Item>
                         
                         <Form.Item>

@@ -68,7 +68,7 @@ export const MembersDashboardComponent = () => {
       ];
 
     return (
-        <DashboardLayout defaultSelectedKeys={3}>
+        <DashboardLayout defaultSelectedKeys={3} isMenuCollapsed={false}>
             <Title className=" text-xl mt-4 font-medium">Members</Title>
 
         <div className="w-[75vw] flex flex-row">

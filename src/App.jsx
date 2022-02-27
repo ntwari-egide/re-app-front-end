@@ -12,6 +12,7 @@ import {
 import { WelcomeDashboard } from './views/WelcomeDashboard';
 import { PropertiesDashboard } from './views/PropertiesDashboard';
 import { MembersDashboardComponent } from './views/MembersDashboard';
+import { ProfileDashboard } from './views/ProfileDashboard';
 
 
 
@@ -22,6 +23,7 @@ function App() {
         <Route path={'/welcome-dashboard'} component={WelcomeDashboard} />  
         <Route path={'/properties'} component={PropertiesDashboard} /> 
         <Route path={'/members'} component={MembersDashboardComponent} /> 
+        <Route path={'/profile'} component={ProfileDashboard} /> 
       </Switch>  
     </Router>
   )

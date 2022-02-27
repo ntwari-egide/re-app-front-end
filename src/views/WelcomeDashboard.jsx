@@ -41,7 +41,7 @@ export const WelcomeDashboard = () => {
     
     <Title className=" text-xl mt-4 font-medium">Dashboard</Title>
 
-    <div className="w-[70vw] flex flex-row">
+    <div className="w-[70vw] flex flex-row" isMenuCollapsed={false}>
         <div className="w-[100%] ">
             <Space size={19} direction="horizontal" className="mt-6 w-full">
                 <div className="pt-6 p-4 background_yellow w-[19vw] rounded-md cursor-pointer hover:scale-[1.03]">

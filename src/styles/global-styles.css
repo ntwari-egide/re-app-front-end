@@ -24,3 +24,7 @@ input.ant-input {
     height: 46px !important;
     padding: 7px !important;
 }
+
+span.ant-input-affix-wrapper.w-96.search-input {
+    height: 34px;
+}
