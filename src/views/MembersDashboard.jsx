@@ -12,6 +12,9 @@ import { MembersTable } from "../models/MembersTable";
 import { InfoCircleOutlined } from '@ant-design/icons';
 import {Form}  from 'antd'
 import { Option } from "antd/lib/mentions";
+import { Pie } from "@nivo/pie";
+import { ThemeProvider, SvgWrapper } from "@nivo/core";
+import { BoxLegendSvg } from "@nivo/legends";
 
 const {Title} = Typography
 
@@ -43,6 +46,27 @@ export const MembersDashboardComponent = () => {
 
       const [form] = Form.useForm();
 
+      const data = [
+        {
+          id: "rented",
+          label: "Rented",
+          value: 210,
+          color: "#FEB211"
+        },
+        {
+          id: "lost",
+          label: "Lost",
+          value: 175,
+          color: "#F1F3F2"
+        },
+        {
+          id: "available properties",
+          label: "javascript",
+          value: 410,
+          color: "#0597F2"
+        }
+      ];
+
     return (
         <DashboardLayout defaultSelectedKeys={3}>
             <Title className=" text-xl mt-4 font-medium">Members</Title>
@@ -56,7 +80,7 @@ export const MembersDashboardComponent = () => {
             </div>
 
             <Space direction="vertical" className="pl-8 ml-4 border-l-[1px] border-neutral-800 h-[82vh]">
-                <Button className=" rounded-md w-[16em] border-none background_blue text-white h-12 hover:scale-[1.03]" onClick={()=> setaddnewmembervisibility(true)}>Add new member</Button>
+                <Button className=" rounded-md w-[18em] border-none background_blue text-white h-12 hover:scale-[1.03]" onClick={()=> setaddnewmembervisibility(true)}>Add new member</Button>
 
                 {/* rendering the content of add new member */}
 
@@ -109,7 +133,73 @@ export const MembersDashboardComponent = () => {
                 </Modal>
 
                 <Space direction="vertical" className="bg-white rounded-md w-full h-96 p-6">
-        dd  
+                
+                <Pie
+                    width={200}
+                    height={200}
+                    data={data}
+                    margin={{
+                        top: 20,
+                        right: 20,
+                        bottom: 20,
+                        left: 20
+                    }}
+                    enableArcLabels={false}
+                    enableArcLinkLabels={false}
+                    colors={['#0597F2','#FEB211','#F1F3F2']}
+                    innerRadius={0.5}
+                    padAngle={0.7}
+                    cornerRadius={3}
+                    colorBy="id"
+                    borderColor="inherit:darker(0.6)"
+                    radialLabelsSkipAngle={10}
+                    radialLabelsTextXOffset={6}
+                    radialLabelsTextColor="#333333"
+                    radialLabelsLinkOffset={0}
+                    radialLabelsLinkDiagonalLength={16}
+                    radialLabelsLinkHorizontalLength={24}
+                    radialLabelsLinkStrokeWidth={1}
+                    radialLabelsLinkColor="inherit"
+                    slicesLabelsSkipAngle={10}
+                    slicesLabelsTextColor="#333333"
+                    animate={true}
+                    motionStiffness={90}
+                    motionDamping={15}
+                    theme={{
+                        tooltip: {
+                        container: {
+                            fontSize: "13px"
+                        }
+                        },
+                        labels: {
+                        text: { color: "#555" }
+                        }
+                    }}
+                    />
+
+                    <ThemeProvider>
+                        <SvgWrapper
+                            height={100}
+                            width={200}
+                            margin={{ left: 0, right: 0, top: 0, bottom: 0 }}
+                        >
+                            <BoxLegendSvg
+                            anchor="center"
+                            data={data}
+                            containerWidth={400}
+                            containerHeight={100}
+                            height={100}
+                            width={200}
+                            direction="row"
+                            itemWidth={90}
+                            itemHeight={20}
+                            itemsSpacing={15}
+                            padding={10}
+                            symbolSize={12}
+                            symbolShape="square"
+                            />
+                        </SvgWrapper>
+                        </ThemeProvider>
                 </Space>
             </Space>
         </div>
