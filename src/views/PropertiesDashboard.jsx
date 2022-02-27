@@ -1,11 +1,17 @@
-import { Button, Space, Typography } from "antd"
+import { Button, Input, Select, Space, Typography } from "antd"
 import { useEffect, useState } from "react";
 import { DashboardLayout } from "../models/DashboardLayout"
 import { PropertiesTable } from "../models/Table";
+import {Form}  from 'antd'
+import Modal from "antd/lib/modal/Modal";
+import { InfoCircleOutlined } from '@ant-design/icons';
 
 export const PropertiesDashboard = () => {
+    const [form] = Form.useForm();
 
     const [activetab, setactivetab] = useState(1)
+
+    const [isaddnewpropertyrvisible, setaddnewpropertyvisibility] = useState(false)
 
     const [propertyToDisplay, setPropertyToDisplay] = useState([])
 
@@ -136,7 +142,7 @@ export const PropertiesDashboard = () => {
         <DashboardLayout defaultSelectedKeys={2}>
             <Title className=" text-xl mt-4 font-medium">Properties</Title>
 
-            <Button className="float-right rounded-md w-[16em] border-none background_blue text-white h-12 hover:scale-[1.03] mt-4">Add new property</Button>
+            <Button className="float-right rounded-md w-[16em] border-none background_blue text-white h-12 hover:scale-[1.03] mt-4" onClick={()=> setaddnewpropertyvisibility(true)}>Add new property</Button>
 
             <Space size={2} direction="horizontal" className="mt-4">
                 <Space className={`${ activetab === 1 ? 'background_blue': 'bg-white'} py-2 cursor-pointer hover:scale-[1.03] h-12 w-48 text-center`} onClick={() => handleToogling(1)}>
@@ -154,6 +160,36 @@ export const PropertiesDashboard = () => {
                     <p className={`text-center w-48 mt-4 ${activetab === 3 ? 'text-white': 'text-black'}`}>Available</p>
                 </Space>
             </Space>
+
+            <Modal title={null} visible={isaddnewpropertyrvisible}  onCancel={() => setaddnewpropertyvisibility(false)} footer={null}>
+                    <Title className="text-base text-center font-semibold">Add Property</Title>
+
+                    <div className="px-16 mt-8">
+                    <Form
+                        form={form}
+                        layout="vertical"
+                        >
+                        
+                        <Form.Item
+                            label="Property name"
+                            tooltip={{ title: 'property name is required', icon: <InfoCircleOutlined /> }}
+                        >
+                            <Input placeholder="please enter property name" />
+                        </Form.Item>
+
+                        <Form.Item
+                            label="Description"
+                            tooltip={{ title: 'enter property description', icon: <InfoCircleOutlined /> }}
+                        >
+                            <Input placeholder="please enter property description" />
+                        </Form.Item>
+                        
+                        <Form.Item>
+                            <Button type="primary" className="w-full h-12 background_blue">Create</Button>
+                        </Form.Item>
+                        </Form>
+                    </div>
+                </Modal>
 
             <PropertiesTable data={propertyToDisplay} />
         </DashboardLayout>
