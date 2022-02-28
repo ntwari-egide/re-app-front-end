@@ -3,7 +3,7 @@
  * @description: memebers dashboard component
  */
 
-import { Button, Input, Select, Space, Typography } from "antd"
+import { Button, Col, Input, Row, Select, Space, Typography } from "antd"
 import Modal from "antd/lib/modal/Modal";
 import { useState } from "react";
 
@@ -41,6 +41,40 @@ export const MembersDashboardComponent = () => {
             registeredAt: '03-01-2023',
             status: 'active',
             actions: ['edit','delete', 'notify', 'report']
+        },
+        {
+            key: '3',
+            name: 'Gahamanyi Yvette',
+            class: 'Y3 B',
+            registeredAt: '12-01-2023',
+            status: 'paused',
+            actions: ['edit','delete', 'report']
+          },
+  
+          {
+              key: '4',
+              name: 'Ntwari Egide',
+              class: 'Y3 B',
+              registeredAt: '03-01-2023',
+              status: 'active',
+              actions: ['edit','delete', 'notify', 'report']
+          },
+          {
+            key: '5',
+            name: 'Gahamanyi Yvette',
+            class: 'Y3 B',
+            registeredAt: '12-01-2023',
+            status: 'paused',
+            actions: ['edit','delete', 'report']
+          },
+  
+          {
+              key: '6',
+              name: 'Ntwari Egide',
+              class: 'Y3 B',
+              registeredAt: '03-01-2023',
+              status: 'active',
+              actions: ['edit','delete', 'notify', 'report']
           }
       ];
 
@@ -71,16 +105,16 @@ export const MembersDashboardComponent = () => {
         <DashboardLayout defaultSelectedKeys={3} isMenuCollapsed={false}>
             <Title className=" text-xl mt-4 font-medium">Members</Title>
 
-        <div className="w-[75vw] flex flex-row">
-            <div className="w-[100%] ">
+        <Row className="flex flex-row">
+            <Col span={18} className="w-full">
 
-                <div className="w-full bg-white p-1 mt-8 h-80 rounded-md">
+                <div className="w-[97%] bg-white px-16 py-4 mt-8  rounded-md">
                     <MembersTable data={templatedata} />
                 </div>
-            </div>
+            </Col>
 
-            <Space direction="vertical" className="pl-8 ml-4 border-l-[1px] border-neutral-800 h-[82vh]">
-                <Button className=" rounded-md w-[18em] border-none background_blue text-white h-12 hover:scale-[1.03]" onClick={()=> setaddnewmembervisibility(true)}>Add new member</Button>
+            <Col span={6} direction="vertical" className="pl-8 border-l-[1px] border-neutral-200 h-[82vh] sticky top-96">
+                <Button className=" rounded-md w-full border-none background_blue text-white h-12 hover:scale-[1.03]" onClick={()=> setaddnewmembervisibility(true)}>Add new member</Button>
 
                 {/* rendering the content of add new member */}
 
@@ -132,7 +166,7 @@ export const MembersDashboardComponent = () => {
                     </div>
                 </Modal>
 
-                <Space direction="vertical" className="bg-white rounded-md w-full h-96 p-6">
+                <Space direction="vertical" className="bg-white rounded-md mt-8 w-full h-96 p-6">
                 
                 <Pie
                     width={200}
@@ -201,8 +235,8 @@ export const MembersDashboardComponent = () => {
                         </SvgWrapper>
                         </ThemeProvider>
                 </Space>
-            </Space>
-        </div>
+            </Col>
+        </Row>
         </DashboardLayout>
     )
 }

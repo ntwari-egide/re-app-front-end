@@ -65,7 +65,7 @@ export const WelcomeDashboard = () => {
             </div>
         </Col>
 
-        <Col span={6} className="pl-8 border-l-[1px] border-neutral-300 h-[82vh]">
+        <Col span={6} className="pl-8 border-l-[1px] border-neutral-200 h-[82vh]">
             <Button className=" rounded-md w-full border-none background_blue text-white h-12 hover:scale-[1.03]">Add new property</Button>
 
             <Space direction="vertical" className="bg-white rounded-md mt-8 w-full h-96 p-6">
