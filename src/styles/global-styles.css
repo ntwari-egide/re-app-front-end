@@ -32,6 +32,7 @@ span.ant-input-affix-wrapper.w-96.search-input {
 
 .transparent_violet_bg {
     background-color: #45247315 !important;
+    border-top-left-radius: 70px;
 }
 
 .pure_violet_bg{
